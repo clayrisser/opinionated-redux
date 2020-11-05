@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
-import { PersistConfig } from 'redux-persist';
 import { EnhancerOptions } from 'redux-devtools-extension';
+import { Options as ReduxObservableOptions } from 'redux-observable';
+import { PersistConfig } from 'redux-persist';
 
 export interface StoreCreatorOptions<State> {
   devTools?: EnhancerOptions | boolean;
   persist?: PersistConfig<State> | false;
+  reduxObservable?: ReduxObservableOptions;
 }

@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { combineEpics, createEpicMiddleware, Epic } from 'redux-observable';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import {
   PersistConfig,
@@ -21,12 +22,6 @@ import {
   persistReducer,
   persistStore
 } from 'redux-persist';
-import {
-  combineEpics,
-  createEpicMiddleware,
-  Epic,
-  Options as EpicMiddlewareOptions
-} from 'redux-observable';
 import {
   AnyAction,
   Middleware,
@@ -58,7 +53,6 @@ export default class OpinionatedRedux<State> {
     private initialState: PreloadedState<State>,
     public epics: Epic[] = [],
     options: Partial<StoreCreatorOptions<State>> = {},
-    private epicMiddlewareOptions: EpicMiddlewareOptions = {},
     middlewares: Middleware[] = []
   ) {
     this.options = {
@@ -69,7 +63,7 @@ export default class OpinionatedRedux<State> {
       ...options
     };
     if (this.options.persist) this.persist = this.options.persist;
-    const epicMiddleware = createEpicMiddleware(this.epicMiddlewareOptions);
+    const epicMiddleware = createEpicMiddleware(this.options.reduxObservable);
     this.middlewares = [epicMiddleware, ...middlewares];
     this.reducer = (this.persist
       ? persistReducer<State>(

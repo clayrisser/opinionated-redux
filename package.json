@@ -1,6 +1,6 @@
 {
   "name": "opinionated-redux",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "an opinionated redux setup with redux-observable, redux-devtools and redux-persist",
   "keywords": [
     "opinionated-redux",
