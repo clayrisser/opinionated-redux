@@ -2,6 +2,8 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/silicon-hills/opinionated-redux.svg?style=social&label=Stars)](https://github.com/silicon-hills/opinionated-redux)
 
+![](assets/opinionated-redux.png)
+
 > an opinionated redux setup with redux-observable, redux-devtools and redux-persist
 
 Please ★ this repo if you found it useful ★ ★ ★
